@@ -1,8 +1,9 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import 'package:get/get.dart';
+import 'package:parchame/ui/pages/home/widgets/encontrar_plan_bottom_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,60 +32,66 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 40,
-                  width: 210,
-                  padding: const EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [
-                        // Colors.white, Colors.grey
-                        // Colors.green,
-                        Colors.yellow,
-                        Colors.amber,
-                        Colors.orange,
-                        Colors.deepOrange,
-                        // Colors.red,
-                        // Colors.pink,
-                        // Colors.purple,
-                        // Colors.indigo,
-                        // Colors.blue
-                      ]),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Container(
+        title: GestureDetector(
+          onTap: () {
+            Get.bottomSheet(EncontrarPlanBottomSheet(),
+                isScrollControlled: true, ignoreSafeArea: false);
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 40,
+                    width: 210,
+                    padding: const EdgeInsets.all(3),
                     decoration: BoxDecoration(
-                        color: Colors.black,
+                        gradient: LinearGradient(colors: [
+                          // Colors.white, Colors.grey
+                          // Colors.green,
+                          Colors.yellow,
+                          Colors.amber,
+                          Colors.orange,
+                          Colors.deepOrange,
+                          // Colors.red,
+                          // Colors.pink,
+                          // Colors.purple,
+                          // Colors.indigo,
+                          // Colors.blue
+                        ]),
                         borderRadius: BorderRadius.circular(20)),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'No tengo plan...',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'No tengo plan...',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          '🤔',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ],
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            '🤔',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
         actions: [
           IconButton(
